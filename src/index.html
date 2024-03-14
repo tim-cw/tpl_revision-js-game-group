@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>rouge vs bleu</title>
+
+        <link rel="stylesheet" href="styles/main.css" />
+
+        <script src="scripts/main.js" defer></script>
+    </head>
+
+    <body>
+        <div class="battle" data-component="Game">
+            <section class="group group-red js-group-red">
+                <h2>groupe rouge</h2>
+                <div class="group__menu">
+                    <article class="perso js-perso">
+                        <h3 class="js-name">soldat</h3>
+                        <img src="assets/images/soldier.png" alt="" />
+                        <div class="perso__force js-force"></div>
+                    </article>
+                    <article class="perso js-perso">
+                        <h3 class="js-name">paladin</h3>
+                        <img src="assets/images/paladin.png" alt="" />
+                        <div class="perso__force js-force"></div>
+                    </article>
+                    <article class="perso js-perso" data-force="4">
+                        <h3 class="js-name">archer</h3>
+                        <img src="assets/images/archer.png" alt="" />
+                        <div class="perso__force js-force"></div>
+                    </article>
+                </div>
+                <div class="group__footer">
+                    <button class="button js-generate">Générer</button>
+                    <div class="group__detail">
+                        <header class="group__content">
+                            <h4>Membres</h4>
+                            <div class="js-members">
+                                <!-- membres du groupe choisi-->
+                            </div>
+                        </header>
+
+                        <footer>
+                            <h4>Force</h4>
+                            <div class="js-total-force">
+                                <!-- force du groupe choisi-->
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </section>
+            <section class="group group-blue js-group-blue">
+                <h2>groupe bleu</h2>
+                <div class="group__menu">
+                    <article class="perso js-perso">
+                        <h3 class="js-name">soldat</h3>
+                        <img src="assets/images/soldier.png" alt="" />
+                        <div class="perso__force js-force"></div>
+                    </article>
+                    <article class="perso js-perso">
+                        <h3 class="js-name">paladin</h3>
+                        <img src="assets/images/paladin.png" alt="" />
+                        <div class="perso__force js-force"></div>
+                    </article>
+                    <article class="perso js-perso" data-force="7">
+                        <h3 class="js-name">archer</h3>
+                        <img src="assets/images/archer.png" alt="" />
+                        <div class="perso__force js-force">8</div>
+                    </article>
+                </div>
+                <div class="group__footer">
+                    <button class="button js-generate">Générer</button>
+                    <div class="group__detail">
+                        <header class="group__content">
+                            <h4>Membres</h4>
+                            <div class="js-members">
+                                <!-- membres du groupe choisi-->
+                            </div>
+                        </header>
+
+                        <footer>
+                            <h4>Force</h4>
+                            <div class="js-total-force">
+                                <!-- force du groupe choisi-->
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <button class="button__battle button js-fight">
+                    <img src="assets/images/icon-battle.png" alt="" />
+                </button>
+            </footer>
+        </div>
+    </body>
+</html>

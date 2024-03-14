@@ -1,0 +1,24 @@
+/* ==========================================================================
+   button / component
+   ========================================================================== */
+
+.button {
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    background: var(--color-black);
+    border: none;
+    color: var(--color-white);
+    line-height: 1;
+    padding: 30px;
+
+    img {
+        width: 70px;
+        height: auto;
+    }
+
+    &:hover {
+        border-color: var(--color-black);
+        background: var(--color-primary);
+        color: var(--color-black);
+    }
+}

@@ -1,0 +1,202 @@
+/* ==========================================================================
+   CHEF / COMPONENTS
+   ========================================================================== */
+
+.battle {
+    @media (min-width: $breakpoint-mlg) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .button__battle {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.group {
+    position: relative;
+
+    padding: var(--spacing-lg);
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    align-items: start;
+    gap: 50px;
+    transition: opacity 1s $ease-out-expo;
+
+    h2 {
+        color: var(--color-white);
+        text-shadow: var(--hover-offset) var(--hover-offset) 0 rgb(0, 0, 0, 0.5);
+    }
+
+    // Plant
+    &::after {
+        content: '';
+        background: url('../assets/images/plante1.png') no-repeat 10% 100%;
+        background-size: 240px auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    // 2e groupe
+    &.group-blue {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #054178;
+            mix-blend-mode: color;
+            z-index: -1;
+        }
+
+        &::after {
+            background-image: url('../assets/images/plante2.png');
+            background-position: 100% 0;
+        }
+    }
+
+    .is-winner-blue &.group-red {
+        opacity: 0.5;
+    }
+
+    .is-winner-red &.group-blue {
+        opacity: 0.5;
+    }
+}
+
+.group__footer {
+    color: var(--color-black);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+
+    align-items: start;
+}
+
+.group__detail {
+    grid-column: span 2;
+    background: var(--color-white);
+    border: 8px solid var(--color-black);
+
+    header,
+    footer {
+        padding: var(--spacing-md);
+    }
+
+    p {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    footer {
+        border-top: 4px solid var(--color-black);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--spacing-md);
+        font-size: #{typo(50px)};
+
+        p {
+            margin: 0;
+            line-height: 1;
+        }
+    }
+}
+
+.perso {
+    background: var(--color-white);
+    border: 8px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: column-reverse;
+    width: 100%;
+    padding: 12px;
+    overflow: hidden;
+    transition: all 0.4s $ease-out-expo;
+    cursor: pointer;
+    color: var(--color-black);
+    box-shadow: 0 0 0 rgb(0, 0, 0, 0.5);
+
+    &:hover {
+        border-color: var(--color-primary);
+    }
+
+    h3 {
+        opacity: 0.7;
+        transition: all 0.2s $ease-out-expo;
+        margin: var(--spacing-md) 0 0;
+    }
+
+    .perso__force {
+        opacity: 0;
+        transform: translateX(60px);
+        transition: all 0.8s 0.1s $ease-out-expo;
+    }
+
+    img {
+        filter: grayscale(1);
+    }
+
+    &.is-active {
+        background: var(--color-primary);
+        box-shadow: var(--hover-offset) var(--hover-offset) 0 rgb(0, 0, 0, 0.5);
+        transform: translate(
+            calc(var(--hover-offset) * -1),
+            calc(var(--hover-offset) * -1)
+        );
+
+        .perso__force {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        h2 {
+            opacity: 1;
+        }
+        img {
+            animation: walk 0.8s steps(1, end) infinite;
+            filter: grayscale(0);
+        }
+    }
+}
+
+.perso__force {
+    position: absolute;
+    top: var(--spacing-xs);
+    right: var(--spacing-xs);
+    font-size: #{typo(20px)};
+}
+
+.group__menu {
+    display: grid;
+    gap: var(--spacing-md);
+
+    @media (min-width: $breakpoint-sm) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@keyframes walk {
+    0% {
+        transform: scaleX(-1);
+    }
+    50% {
+        transform: scaleX(1);
+    }
+    0% {
+        transform: scaleX(-1);
+    }
+}
